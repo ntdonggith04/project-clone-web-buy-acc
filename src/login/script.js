@@ -362,3 +362,55 @@ function initLoginForm() {
 }
 
 initLoginForm();
+
+function handleGoogleSignIn(response) {
+    const { credential } = response;
+    
+    // Gửi token đến backend
+    fetch('/api/google-login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: credential }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Lưu token và chuyển hướng
+            localStorage.setItem('token', data.token);
+            window.location.href = '/dashboard';
+        } else {
+            alert('Đăng nhập thất bại: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Lỗi:', error);
+        alert('Có lỗi xảy ra!');
+    });
+}
+
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client('1076613776781-f4k23jlrpavv4gbn7ne5ebksbfhc0hp7.apps.googleusercontent.com');
+
+app.post('/api/google-login', async (req, res) => {
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken: req.body.token,
+            audience: '1076613776781-f4k23jlrpavv4gbn7ne5ebksbfhc0hp7.apps.googleusercontent.com'
+        });
+        
+        const payload = ticket.getPayload();
+        // Xử lý thông tin người dùng ở đây
+        res.json({ 
+            success: true,
+            token: 'JWT_TOKEN_TU_TAO',
+            user: {
+                name: payload.name,
+                email: payload.email
+            }
+        });
+    } catch (error) {
+        res.status(401).json({ success: false, message: 'Token không hợp lệ' });
+    }
+});

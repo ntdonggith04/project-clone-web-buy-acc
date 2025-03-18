@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -231,10 +232,21 @@
         </div>
         <div class="inputGroup inputGroup4">
             <a href=""><i class="text_forget">Quên mật khẩu?</i></a>
-            <a href="">
-                <i class="fa-brands fa-google icon-google color"></i>
-                <i class="icon-google">Google</i>
-            </a>
+            <div id="g_id_onload"
+                data-client_id="1076613776781-f4k23jlrpavv4gbn7ne5ebksbfhc0hp7.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="handleGoogleSignIn"
+                data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-shape="rectangular"
+                 data-theme="outline"
+                 data-text="signin_with"
+                 data-size="large"
+                 data-logo_alignment="left">
+            </div>
             <a href="">
                 <i class="fa-brands fa-square-facebook icon-facebook"></i>
                 <i class="text-facebook">Facebook</i>
