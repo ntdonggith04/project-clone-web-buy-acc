@@ -9,11 +9,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="style.scss">
+    <!-- <link rel="stylesheet" href="style.scss"> -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -231,45 +230,38 @@
             <button id="login">Đăng nhập</button>
         </div>
         <div class="inputGroup inputGroup4">
+            <div class="container_gg">
+                <div id="g_id_onload"
+                    data-client_id="1076613776781-f4k23jlrpavv4gbn7ne5ebksbfhc0hp7.apps.googleusercontent.com"
+                    data-context="signin" data-ux_mode="popup" data-callback="handleGoogleSignIn"
+                    data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+            </div>
             <a href=""><i class="text_forget">Quên mật khẩu?</i></a>
-            <div id="g_id_onload"
-                data-client_id="1076613776781-f4k23jlrpavv4gbn7ne5ebksbfhc0hp7.apps.googleusercontent.com"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-callback="handleGoogleSignIn"
-                data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin"
-                 data-type="standard"
-                 data-shape="rectangular"
-                 data-theme="outline"
-                 data-text="signin_with"
-                 data-size="large"
-                 data-logo_alignment="left">
-            </div>
-            <a href="">
-                <i class="fa-brands fa-square-facebook icon-facebook"></i>
-                <i class="text-facebook">Facebook</i>
-            </a>
         </div>
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
     <script>
-       document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".inputField").forEach((input) => {
-        input.addEventListener("input", function () {
-            this.value = removeVietnameseDiacritics(this.value); // Xóa dấu tiếng Việt
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".inputField").forEach((input) => {
+                input.addEventListener("input", function () {
+                    this.value = removeVietnameseDiacritics(this.value); // Xóa dấu tiếng Việt
+                });
+            });
         });
-    });
-});
 
-// Hàm chuyển đổi chữ có dấu thành không dấu
-function removeVietnameseDiacritics(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]/g, "");
-}
+        // Hàm chuyển đổi chữ có dấu thành không dấu
+        function removeVietnameseDiacritics(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]/g, "");
+        }
     </script>
+    <!-- lien ket voi api server -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </body>
 

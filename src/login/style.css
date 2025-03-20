@@ -215,30 +215,43 @@ h1{
     color: #4eb8dd;
 }
 /* forget */
-form .inputGroup4{
+/* form .inputGroup4{
     display: flex;
     justify-content: space-between;
+} */
+.inputGroup4 .container_gg{
+
 }
 form .inputGroup4 a{
     text-decoration: none;
+    margin-top: 10px;
+    display: block;
 }
-form .inputGroup4 a:hover{
+.inputGroup4 .container_gg:hover{
     opacity: 0.6;
 }
+form .inputGroup4 .text_forget:hover{
+    opacity: 0.6;
+    border: 1px solid rgb(115, 164, 201);
+}
 form .inputGroup4 a:active{
-    color: #217093;
-}
-.color{
-    color: rgb(173, 8, 8);
-}
-.text-facebook{
     /* color: #217093; */
+
 }
-.text-facebook,
-.icon-facebook,
 .text_forget,
-.icon-google{
+#container{
     font-size: 15px;
     z-index: 1;
-    font-weight: 600;
+    font-weight: 400;
+}
+a .text_forget{
+    display: block;
+    align-content: center;
+    border: 1px solid rgb(66, 65, 65);
+    padding: 5px;
+    color: black;
+    height: 37px;
+    text-align: center;
+    border-radius: 3px;
+    font-style: normal;
 }
