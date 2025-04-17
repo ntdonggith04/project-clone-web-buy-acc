@@ -1,0 +1,169 @@
+/* Modern Registration Form Styles */
+:root {
+    --primary-color: #2563eb;    /* Màu xanh dương chủ đạo */
+    --secondary-color: #1e40af;  /* Màu xanh dương đậm */
+    --accent-color: #3b82f6;     /* Màu xanh dương nhạt */
+    --text-color: #1f2937;       /* Màu chữ chính */
+    --light-gray: #f3f4f6;       /* Màu nền nhẹ */
+    --border-color: #e5e7eb;     /* Màu viền */
+    --error-color: #dc2626;      /* Màu lỗi */
+    --success-color: #059669;    /* Màu thành công */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--light-gray) 0%, #e5e7eb 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.register-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.register-card .card-header {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.register-card .card-header h4 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.register-card .card-body {
+    padding: 30px;
+}
+
+.form-label {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: var(--light-gray);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+    background-color: white;
+}
+
+.form-control::placeholder {
+    color: #6b7280;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.invalid-feedback {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.form-control.is-invalid {
+    border-color: var(--error-color);
+}
+
+.text-center a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: var(--secondary-color);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-card .form-group {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.register-card .form-group:nth-child(1) { animation-delay: 0.1s; }
+.register-card .form-group:nth-child(2) { animation-delay: 0.2s; }
+.register-card .form-group:nth-child(3) { animation-delay: 0.3s; }
+.register-card .form-group:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .register-container {
+        padding: 10px;
+    }
+    
+    .register-card .card-header {
+        padding: 20px;
+    }
+    
+    .register-card .card-body {
+        padding: 20px;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+    }
+} 
