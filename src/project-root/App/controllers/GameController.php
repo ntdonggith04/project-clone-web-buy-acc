@@ -1,14 +1,22 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Game;
+
 class GameController {
+    private $gameModel;
+
+    public function __construct() {
+        $this->gameModel = new Game();
+    }
+
     public function index() {
         // Danh sách game phổ biến
         $games = [
             [
                 'id' => 1,
                 'name' => 'Liên Quân Mobile',
-                'image' => '/project-clone-web-buy-acc/src/project-root/public/images/games/lienquan.jpg',
+                'image' => BASE_PATH . '/images/games/lienquan.png',
                 'description' => 'Liên Quân Mobile là một tựa game MOBA đình đám với lối chơi nhanh, mượt mà và đồ họa đẹp mắt.',
                 'platform' => 'mobile',
                 'size' => '1.2 GB',
@@ -19,7 +27,7 @@ class GameController {
             [
                 'id' => 2,
                 'name' => 'PUBG Mobile',
-                'image' => '/project-clone-web-buy-acc/src/project-root/public/images/games/pubg.jpg',
+                'image' => BASE_PATH . '/images/games/pubg.png',
                 'description' => 'PUBG Mobile là game bắn súng sinh tồn với đồ họa ấn tượng và lối chơi hấp dẫn.',
                 'platform' => 'mobile',
                 'size' => '1.8 GB',
@@ -30,7 +38,7 @@ class GameController {
             [
                 'id' => 3,
                 'name' => 'Genshin Impact',
-                'image' => '/project-clone-web-buy-acc/src/project-root/public/images/games/genshin.jpg',
+                'image' => BASE_PATH . '/images/games/genshin.png',
                 'description' => 'Genshin Impact là game nhập vai thế giới mở với đồ họa anime tuyệt đẹp.',
                 'platform' => 'pc',
                 'size' => '30 GB',
@@ -41,7 +49,7 @@ class GameController {
             [
                 'id' => 4,
                 'name' => 'Free Fire',
-                'image' => '/project-clone-web-buy-acc/src/project-root/public/images/games/freefire.jpg',
+                'image' => BASE_PATH . '/images/games/freefire.png',
                 'description' => 'Free Fire là game sinh tồn với lối chơi nhanh, phù hợp với nhiều thiết bị.',
                 'platform' => 'mobile',
                 'size' => '700 MB',
@@ -52,7 +60,7 @@ class GameController {
             [
                 'id' => 5,
                 'name' => 'Valorant',
-                'image' => '/project-clone-web-buy-acc/src/project-root/public/images/games/valorant.jpg',
+                'image' => BASE_PATH . '/images/games/valorant.png',
                 'description' => 'Valorant là game bắn súng chiến thuật với các nhân vật có kỹ năng đặc biệt.',
                 'platform' => 'pc',
                 'size' => '20 GB',
@@ -63,7 +71,7 @@ class GameController {
             [
                 'id' => 6,
                 'name' => 'League of Legends',
-                'image' => '/project-clone-web-buy-acc/src/project-root/public/images/games/lol.jpg',
+                'image' => BASE_PATH . '/images/games/lol.png',
                 'description' => 'League of Legends là tựa game MOBA PC nổi tiếng với cộng đồng người chơi lớn.',
                 'platform' => 'pc',
                 'size' => '15 GB',
@@ -73,6 +81,18 @@ class GameController {
             ]
         ];
 
-        require_once BASE_PATH . '/App/views/games/index.php';
+        require_once ROOT_PATH . '/App/views/games/index.php';
+    }
+
+    public function updateImages() {
+        try {
+            if ($this->gameModel->updateGameImages()) {
+                echo json_encode(['success' => true, 'message' => 'Cập nhật ảnh game thành công']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Có lỗi xảy ra khi cập nhật ảnh game']);
+            }
+        } catch (\Exception $e) {
+            echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+        }
     }
 } 

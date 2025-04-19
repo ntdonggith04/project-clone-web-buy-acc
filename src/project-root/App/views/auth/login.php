@@ -287,6 +287,7 @@
             position: relative;
             padding-left: 40px;
             letter-spacing: 0.3px;
+            display: block;
         }
 
         .error-message::before {
@@ -376,6 +377,28 @@
                 font-size: 1.1em;
             }
         }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .forgot-password a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: var(--primary-color);
+        }
+
+        .forgot-password i {
+            margin-right: 5px;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -386,9 +409,12 @@
                 <p>Chào mừng bạn trở lại!</p>
             </div>
             
-            <?php if (isset($errors['general'])): ?>
+            <?php if (isset($_SESSION['error'])): ?>
                 <div class="error-message">
-                    <?php echo htmlspecialchars($errors['general']); ?>
+                    <?php 
+                        echo htmlspecialchars($_SESSION['error']);
+                        unset($_SESSION['error']);
+                    ?>
                 </div>
             <?php endif; ?>
 
@@ -412,6 +438,12 @@
                     <?php endif; ?>
                 </div>
 
+                <div class="forgot-password">
+                    <a href="/project-clone-web-buy-acc/src/project-root/public/forgot-password">
+                        <i class="fas fa-key"></i>Quên mật khẩu?
+                    </a>
+                </div>
+
                 <button type="submit" class="btn-login">Đăng nhập</button>
             </form>
 
@@ -429,5 +461,20 @@
             </div>
         </div>
     </main>
+
+    <script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     // Tự động ẩn thông báo lỗi sau 5 giây
+    //     const messages = document.querySelectorAll('.error-message');
+    //     messages.forEach(function(message) {
+    //         setTimeout(function() {
+    //             message.style.opacity = '0';
+    //             setTimeout(function() {
+    //                 message.style.display = 'none';
+    //             }, 300);
+    //         }, 5000);
+    //     });
+    // });
+    // </script>
 </body>
 </html> 

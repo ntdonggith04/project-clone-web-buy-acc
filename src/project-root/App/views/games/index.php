@@ -1,4 +1,4 @@
-<?php require_once BASE_PATH . '/App/views/layouts/header.php'; ?>
+<?php require_once ROOT_PATH . '/App/views/layouts/header.php'; ?>
 
 <div class="container">
     <div class="games-page">
@@ -267,4 +267,4 @@
 }
 </style>
 
-<?php require_once BASE_PATH . '/App/views/layouts/footer.php'; ?> 
+<?php require_once ROOT_PATH . '/App/views/layouts/footer.php'; ?> 

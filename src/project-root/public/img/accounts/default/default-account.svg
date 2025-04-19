@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" version="1.1" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+ <rect width="800" height="600" fill="#f0f0f0"/>
+ <g fill="#999">
+  <path d="m400 200c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80zm0 120c-22.091 0-40-17.909-40-40s17.909-40 40-40 40 17.909 40 40-17.909 40-40 40z"/>
+  <path d="m400 380c-66.274 0-120 53.726-120 120h240c0-66.274-53.726-120-120-120z"/>
+ </g>
+ <text x="400" y="150" text-anchor="middle" font-family="Arial" font-size="24" fill="#666">
+  Game Account Image
+ </text>
+</svg> 
